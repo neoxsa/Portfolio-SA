@@ -1,31 +1,68 @@
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { Mail, Linkedin, Github, TriangleAlertIcon, CircleCheckIcon, OctagonXIcon } from 'lucide-react'
+import emailjs from '@emailjs/browser'
+import { Toaster, toast } from 'sonner';
+
 
 function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
-  const [status, setStatus] = useState('')
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
+  const form = useRef();
+  const [isSent, setIsSent] = useState(false);
+  const [showWarning, setShowWarning] = useState(true);
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (!form.name || !form.email || !form.message) {
-      setStatus('Please fill out all fields.')
-      return
-    }
-    setStatus('Sending...')
-    // Simulate sending
-    setTimeout(() => {
-      setStatus('Message sent — thanks!')
-      setForm({ name: '', email: '', message: '' })
-    }, 900)
+  // EmailJS Handler
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    // Time field before sending
+    form.current.time.value = new Date().toLocaleString();   
+
+
+    emailjs
+      .sendForm(
+        "service_wvzlrnm",
+        "template_mr0uz23",
+        form.current,
+        "efRBSTSYnQz50SD7P"
+      )
+      .then(
+        () => {
+          setIsSent(true);
+          setShowWarning(false);
+          console.log("Success : ", isSent);
+        })
+      .catch((err) => {
+        setIsSent(false);
+        setShowWarning(true);
+        console.log("Failed", err);
+      })
+
   }
+
+  // Toast notify Handler
+ const notify = () => {
+  isSent ? toast.success('Successfully sent!') : showWarning ? toast.warning('Please fill all the fields!') : toast.error('Failed to send!')
+ }
+
 
   const fieldClass = "border border-white/6 p-2 rounded-lg text-gray-100 focus:outline-none focus:border-green-400 "
 
   return (
     <section className="min-h-[calc(100vh-120px)] flex items-center justify-center p-12">
-      <div className="w-full max-w-4xl bg-white/j5 rounded-2xl grid md:grid-cols-2 gap-7 p-7 backdrop-blur-md shadow-lg outline outline-green-400 ">
+
+      <Toaster
+        position='top-center'
+        theme='system'
+        toastOptions={{ duration: 2000 }}
+        icons={{
+          success: <CircleCheckIcon className='text-green-500' size={20} />,
+          error: <OctagonXIcon className='text-red-500' size={20} />,
+          warning: <TriangleAlertIcon className='text-yellow-500' size={20} />,
+        }}
+
+      />
+
+      <div className="max-w-4xl bg-white/j5 rounded-2xl grid md:grid-cols-2 gap-7 p-7 backdrop-blur-md shadow-lg outline outline-green-400 ">
         <div className="p-2">
           <h2 className="m-0 mb-2 text-2xl text-green-400">Get in touch</h2>
           <p className="text-gray-300 mb-4 leading-6">
@@ -34,55 +71,76 @@ function Contact() {
           </p>
 
           <div className="flex flex-col gap-2">
-            <a href="mailto:sadabanwar@outlook.com" className="w-fit text-green-300 font-medium hover:underline ">sadabanwar@outlook.com</a>
-            <a href="https://linkedin.com/in/neoxsa" target="_blank" rel="noreferrer" className="w-fit text-blue-400 font-medium  hover:underline">LinkedIn</a>
-            <a href="https://github.com/neoxsa" target="_blank" rel="noreferrer" className="w-fit text-gray-400 font-medium hover:underline">GitHub</a>
+            <a
+              href="mailto:sadabanwar@outlook.com"
+              className="w-fit text-green-300 font-medium hover:underline flex">
+              <Mail size={20} />&nbsp;&gt; sadabanwar@outlook.com
+            </a>
+            <a
+              href="https://linkedin.com/in/neoxsa"
+              target="_blank"
+              rel="noreferrer"
+              className="w-fit text-blue-400 font-medium  hover:underline flex">
+              <Linkedin size={20} />&nbsp;&gt; LinkedIn
+            </a>
+            <a
+              href="https://github.com/neoxsa"
+              target="_blank" rel="noreferrer"
+              className="w-fit text-gray-400 font-medium hover:underline flex">
+              <Github size={20} />&nbsp;&gt; GitHub
+            </a>
           </div>
         </div>
 
-        <form className="p-1 flex flex-col gap-3" onSubmit={handleSubmit}>
-          <label className="flex flex-col gap-2">
-            <span className="text-sm text-gray-300">Name</span>
+        <form className="p-1 flex flex-col gap-3" ref={form} onSubmit={sendEmail}>
+          <div className="flex flex-col gap-2">
+            <label className="text-sm text-gray-300">Name</label>
             <input
+              type='text'
               name="name"
-              value={form.name}
-              onChange={handleChange}
               className={fieldClass}
               placeholder="Your name"
+              required
             />
-          </label>
+          </div>
 
-          <label className="flex flex-col gap-2">
-            <span className="text-sm text-gray-300">Email</span>
+          <div className="flex flex-col gap-2">
+            <label className="text-sm text-gray-300">Email</label>
             <input
+              type='email'
               name="email"
-              value={form.email}
-              onChange={handleChange}
               className={fieldClass}
               placeholder="you@example.com"
+              required
             />
-          </label>
+          </div>
 
-          <label className="flex flex-col gap-2">
-            <span className="text-sm text-gray-300">Message</span>
+          <div className="flex flex-col gap-2">
+            <label className="text-sm text-gray-300">Message</label>
             <textarea
               name="message"
-              value={form.message}
-              onChange={handleChange}
-              className={fieldClass} 
-              placeholder="Tell me about your project..."
+              className={fieldClass}
+              placeholder="Your message..."
               rows={6}
+              required
             />
-          </label>
+          </div>
+          <div className="flex flex-col gap-2">
+            <input
+              type='hidden'
+              name='time'
+              value=""
+            />
+          </div>
 
           <div className="flex items-center gap-3 mt-2">
-            <button 
-            type="submit" 
-            className="inline-flex gap-2 text-green-400 border-2 border-green-400 px-8 py-3 font-semibold uppercase tracking-widest bg-green-500/10 hover:bg-green-600 active:bg-green-600 hover:text-black active:text-black transition-all duration-300 relative z-20 rounded-lg"
+            <button
+              type="submit"
+              onClick={notify}
+              className="inline-flex gap-2 text-green-400 border-2 border-green-400 px-8 py-3 font-semibold uppercase tracking-widest bg-green-500/10 hover:bg-green-600 active:bg-green-600 hover:text-black active:text-black transition-all duration-300 relative z-20 rounded-lg"
             >Send Message</button>
           </div>
 
-          {status && <p className="mt-2 text-red-300 font-semibold">{status}</p>}
         </form>
       </div>
     </section>
