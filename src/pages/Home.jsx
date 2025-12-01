@@ -1,12 +1,10 @@
-import React from 'react'
-import HeroCard from '../components/HeroCard/HeroCard'
-import ProjectCard from '../components/ProjectSection/ProjectSection'
+import { HeroCard, ProjectCard } from '#components'
 
 function Home() {
     return (
         <>
-           <HeroCard />
-           <ProjectCard/>
+            <HeroCard />
+            <ProjectCard />
         </>
     )
 }

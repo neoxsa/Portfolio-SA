@@ -24,7 +24,7 @@ function SideBar({
         <div>
 
           <nav>
-            <ul className="flex flex-col gap-2 justify-center text-xl">
+            <ul className="flex flex-col gap-2 justify-center text-xl tracking-widest">
               <li>
                 <Link
                   to="/"

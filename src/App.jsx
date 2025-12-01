@@ -1,8 +1,7 @@
-import NavBar from './components/Header/NavBar.jsx'
-import Footer from './components/Footer/Footer.jsx'
+import { NavBar, Footer } from '#components'
 import './index.css'
 import { Outlet } from 'react-router-dom'
-import SideBar from './components/Header/SideBar.jsx'
+import ScrollToTop from './util/ScrollToTop.jsx'
 
 function App() {
   return (
@@ -12,6 +11,7 @@ function App() {
         <div className="absolute inset-0 bg-linear-to-r from-black via-transparent to-black opacity-30"></div>
         <div className="absolute inset-0 bg-linear-to-b from-black via-transparent to-black opacity-30"></div>
         <div className="relative z-10">
+          <ScrollToTop />
           <NavBar />
           <Outlet />
           <Footer />

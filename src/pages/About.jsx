@@ -1,19 +1,16 @@
-import React from 'react'
 import { GithubIcon, Linkedin, Download } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 function About() {
     return (
-        <section className="min-h-[calc(100vh-120px)] bg-gradient-to-b from-black via-black to-green-900/5 px-6 lg:px-20 py-16 lg:py-28">
+        <section className="min-h-[calc(100vh-120px)] bg-gradient-to-b from-transparent via-black to-green-900/5 px-6 lg:px-20 py-16 lg:py-28">
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
-                <div className="mb-16 text-center lg:text-left">
+                <div className="mb-16 text-center md:text-left">
                     <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">About Me</h1>
-                    <div className="h-1 w-20 bg-green-400 mb-8"></div>
+                    <div className="h-1 w-20 inline-flex bg-green-400 mb-8"></div>
                     <p className="text-lg text-gray-300 leading-relaxed max-w-2xl">
-                        I'm a passionate full-stack developer with a love for creating beautiful, responsive web applications.
-                        With expertise in modern JavaScript frameworks and a cyberpunk aesthetic, I build digital experiences that are
-                        both functional and visually striking.
+                       I'm a passionate frontend developer focused on building clean, responsive, and user-friendly web applications. With hands-on experience in React, I love turning ideas into functional interfaces.
                     </p>
                 </div>
 
@@ -23,26 +20,21 @@ function About() {
                         <h2 className="text-2xl font-bold text-green-400 mb-6">Who I Am</h2>
                         <div className="space-y-4 text-gray-300">
                             <p>
-                                I'm a self-taught developer from [Your Location], currently working on innovative web projects
-                                that combine cutting-edge technology with stunning design. I specialize in building responsive,
-                                scalable applications that solve real-world problems.
+                                I'm an aspiring developer currently building real-world projects to sharpen my skills and explore modern web technologies. I enjoy crafting smooth, responsive UI and improving with every project.
                             </p>
                             <p>
-                                When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects,
-                                or enjoying the digital landscape of the metaverse. I believe in continuous learning and pushing the
-                                boundaries of what's possible on the web.
+                                I believe in continuous learning and pushing myself to understand the “why” behind the code.
                             </p>
                             <p>
-                                I'm always excited to collaborate on interesting projects and meet fellow developers. Feel free to
-                                reach out — let's build something amazing together!
+                                Always open to new opportunities and collaborations—feel free to reach out so we can build something meaningful together.
                             </p>
                         </div>
 
                         {/* CTA Buttons */}
                         <div className="flex gap-4 mt-8">
                             <Link
-                            to='/contact'
-                            className="px-6 py-3 bg-green-400 text-black font-semibold rounded hover:bg-green-300 transition">
+                                to='/contact'
+                                className="px-6 py-3 bg-green-400 text-black font-semibold rounded hover:bg-green-300 transition">
                                 Get in Touch
                             </Link>
                             {/* <button className="px-6 py-3 border border-green-400 text-green-400 font-semibold rounded hover:bg-green-400/10 transition flex items-center gap-2">

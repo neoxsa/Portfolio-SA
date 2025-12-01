@@ -7,8 +7,7 @@ html {
 
 /* Mesh Background */
 .matrix-bg {
-  background: 
-    repeating-linear-gradient(
+  background: repeating-linear-gradient(
       90deg,
       transparent,
       transparent 18px,
@@ -25,12 +24,8 @@ html {
   animation: matrix-fall 3s linear infinite;
 }
 
-@keyframes matrix-fall {
-  0% {
-    background-position: 0 0, 0 0;
-  }
-  100% {
-    background-position: 0 20px, 20px 0;
-  }
+@layer components {
+ .navBar{
+  @apply relative mt-20 bg-red-500
+ }
 }
-

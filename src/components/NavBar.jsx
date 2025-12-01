@@ -1,8 +1,8 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import logo from '/logo/logo.png';
 import { MenuIcon, X } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
-import SideBar from './SideBar';
+import { SideBar } from '#components';
 
 function NavBar() {
     const [hamMenuOpen, setHamMenuOpen] = useState(false);
@@ -56,7 +56,7 @@ function NavBar() {
 
                 {/* Navigation Menu Desktop */}
                 <ul
-                    className="hidden md:flex gap-15 font-medium text-xl bg-black/30 backdrop-blur-sm text-white px-8 py-3 relative list-none "
+                    className="hidden md:flex gap-15 font-medium text-lg tracking-widest bg-black/30 backdrop-blur-sm text-white px-8 py-3 relative list-none "
                     style={{
                         clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)',
                         filter: 'drop-shadow(0 0 4px #16a34a)',

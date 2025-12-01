@@ -1,5 +1,5 @@
-import nguyen_p1 from '/projectImages/nguyen_p1.png'
-import ud_p2 from '/projectImages/ud_p2.png'
+import nguyen_p1 from '/projectImages/nguyen_p1.webp'
+import ud_p2 from '/projectImages/ud_p2.webp'
 import notion_landing_page from '/projectImages/notion_landing_page.webp'
 
 

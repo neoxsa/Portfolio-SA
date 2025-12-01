@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { ExternalLink, Github } from 'lucide-react'
-import { all_projects } from '../constants/constants'
+import { all_projects } from '#constants/constants'
 
 function Projects() {
   const [filter, setFilter] = useState('All')
@@ -16,8 +16,7 @@ function Projects() {
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">My Projects</h1>
           <div className="h-1 w-20 bg-green-400 mx-auto mb-8"></div>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Here are some of the projects I've worked on. Each project showcases my skills in frontend development,
-            UI/UX design, and problem-solving.
+           Here are some of the projects I've built. Each one highlights my skills in frontend development, UI/UX design, and turning ideas into functional, user-focused experiences.
           </p>
         </div>
 
@@ -49,12 +48,12 @@ function Projects() {
                <span className="absolute -top-2 -left-2 w-5 h-5 border-t-4 border-l-4 border-emerald-500"></span>
             <span className="absolute -bottom-2 -right-2 w-5 h-5 border-b-4 border-r-4 border-emerald-500"></span>
               {/* Project Image */}
-              <div className="relative h-48 overflow-hidden bg-gray-800">
+              <div className="relative h-48 overflow-hidden bg-gray-800 rounded-t-lg">
 
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
+                  className="w-full h-full object-cover group-hover:scale-110 transition duration-300 "
                 />
                 <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition"></div>
               </div>

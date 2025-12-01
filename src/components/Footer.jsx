@@ -1,19 +1,19 @@
-import { GithubIcon, LinkedinIcon, TwitterIcon } from 'lucide-react';
+import { GithubIcon, LinkedinIcon} from 'lucide-react';
 import { Link } from 'react-router-dom';
-import cy_2077_border from '../../assets/btn/cy_2077_border.svg';
+import cy_2077_border from '../assets/btn/cy_2077_border.svg';
 
 function Footer() {
     return (
-        <footer className="relative mt-20">
+        <footer className="relative mt-20 ">
             <img
                 src={cy_2077_border}
                 alt="cyberpunk border"
-               className="w-full h-5 "        
-      />
-      
+                className="w-full h-5 "
+            />
+
             <div
                 className="bg-[#0a0a0a]/50 backdrop-blur-md text-white px-8 py-12 relative"
-            
+
             >
                 <div className="absolute inset-0 opacity-10"></div>
 
