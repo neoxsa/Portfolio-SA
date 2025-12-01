@@ -66,7 +66,15 @@ function Contact() {
 
   // Toast notify Handler
   const notify = () => {
-    isSent ? toast.success('Successfully sent!') : showWarning && typeof recaptchaToken != 'string' ? toast.warning('Please fill all the fields!') : toast.error('Failed to send!')
+    isSent ? toast.success('Successfully sent!')  : showWarning && typeof recaptchaToken != 'string' ? toast.warning('Please fill all the fields!') : !isSent && toast.error('Failed to send');
+  
+    // if(isSent){
+    //   toast.success('Successfully sent!')
+    // }else if(showWarning && typeof recaptchaToken != 'string'){
+    //   toast.warning('Please fill all the fields!')
+    // }else{
+    //   toast.success('Successfully sent!')
+    // }
   }
 
   const fieldClass = "border border-white/6 p-2 rounded-lg text-gray-100 focus:outline-none focus:border-green-400 "
