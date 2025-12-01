@@ -26,13 +26,14 @@ function Contact() {
     e.preventDefault();
 
     // Token check
-    if (!recaptchaToken) alert("Please complete the reCAPTCHA");
+    if (!recaptchaToken) {
+      alert("Please complete the reCAPTCHA")
+      return;
+    } else {
 
+      // Time field before sending
+      form.current.time.value = new Date().toLocaleString();
 
-    // Time field before sending
-    form.current.time.value = new Date().toLocaleString();
-
-    if (recaptchaToken) {
       emailjs
         .sendForm(
           "service_wvzlrnm",
@@ -56,6 +57,10 @@ function Contact() {
 
     }
   }
+
+  console.log("recap: ", recaptchaToken);
+  console.log("type: ", typeof recaptchaToken);
+
 
   // Toast notify Handler
   const notify = () => {
