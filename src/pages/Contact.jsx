@@ -10,10 +10,6 @@ function Contact() {
   const form = useRef();
   const [recaptchaToken, setRecaptchaToken] = useState(null);
 
-  const [isSent, setIsSent] = useState(false);
-  const [showWarning, setShowWarning] = useState(true);
-
-
   // reCAPTCHA handler
   const handleRecaptchaChange = (token) => {
     setRecaptchaToken(token);
@@ -23,28 +19,20 @@ function Contact() {
   };
 
 
-  // Toast notify Handler
-  const notify = () => {
-    
-  }
-
-
-  
   // EmailJS Handler
   const sendEmail = async (e) => {
     e.preventDefault();
 
-    // Token check
+
     if (!recaptchaToken) {
-        setShowWarning(true);
       toast.warning("Please complete the reCAPTCHA");
-      return;
+
     } else if (typeof recaptchaToken === "string") {
 
       // Time field before sending
       form.current.time.value = new Date().toLocaleString();
 
-     await emailjs
+      await emailjs
         .sendForm(
           import.meta.env.VITE_EMAILJS_SERVICE_ID,
           import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
@@ -53,20 +41,18 @@ function Contact() {
         )
         .then(
           () => {
-            setIsSent(true);
             toast.success("Successfully sent!");
             form.current.reset();
             setRecaptchaToken(null);
-            setShowWarning(false);
           })
         .catch((err) => {
-          setIsSent(false);
-          setShowWarning(true);
           toast.error("Failed to send. Please try again later.");
           console.log("Error", err);
           setRecaptchaToken(null);
         })
 
+    } else {
+      toast.error("reCAPTCHA verification failed. Please try again.");
     }
   }
 
@@ -74,7 +60,7 @@ function Contact() {
   const fieldClass = "border border-white/6 p-2 rounded-lg text-gray-100 focus:outline-none focus:border-green-400 "
 
   return (
-    <section className="min-h-[calc(100vh-120px)] flex items-center justify-center p-12">
+    <section className="min-h-[calc(100vh-120px)] flex items-center justify-center p-12 ">
 
       <Toaster
         position='top-center'
@@ -161,7 +147,7 @@ function Contact() {
           </div>
 
           <ReCAPTCHA
-            sitekey="6LfTCx4sAAAAAB22PdY7a1pvaCQNYFgH2CG4VzYT"
+            sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
             onChange={handleRecaptchaChange}
           />
 
