@@ -36,10 +36,10 @@ function Contact() {
 
       emailjs
         .sendForm(
-          "service_wvzlrnm",
-          "template_mr0uz23",
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
           form.current,
-          "efRBSTSYnQz50SD7P"
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         )
         .then(
           () => {
@@ -66,15 +66,11 @@ function Contact() {
 
   // Toast notify Handler
   const notify = () => {
-    isSent ? toast.success('Successfully sent!')  : showWarning && typeof recaptchaToken != 'string' ? toast.warning('Please fill all the fields!') : !isSent && toast.error('Failed to send');
-  
-    // if(isSent){
-    //   toast.success('Successfully sent!')
-    // }else if(showWarning && typeof recaptchaToken != 'string'){
-    //   toast.warning('Please fill all the fields!')
-    // }else{
-    //   toast.success('Successfully sent!')
-    // }
+     showWarning || !recaptchaToken
+    ? toast.warning("Please fill all the fields!")
+    : isSent
+    ? toast.success("Successfully sent!")
+    : toast.error("Failed to send");
   }
 
   const fieldClass = "border border-white/6 p-2 rounded-lg text-gray-100 focus:outline-none focus:border-green-400 "
