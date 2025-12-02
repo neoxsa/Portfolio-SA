@@ -2,7 +2,6 @@ import { NavBar, Footer } from '#components'
 import './index.css'
 import { Outlet } from 'react-router-dom'
 import ScrollToTop from './util/ScrollToTop.jsx'
-import UmamiTracker from './util/UmamiTracker.jsx'
 
 function App() {
   return (
@@ -12,7 +11,6 @@ function App() {
         <div className="absolute inset-0 bg-linear-to-r from-black via-transparent to-black opacity-30"></div>
         <div className="absolute inset-0 bg-linear-to-b from-black via-transparent to-black opacity-30"></div>
         <div className="relative z-10">
-          <UmamiTracker />
           <ScrollToTop />
           <NavBar />
           <Outlet />
