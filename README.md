@@ -1,16 +1,82 @@
-# React + Vite
+<h2 align="center">
+<img src="public/logo/logo.png" alt="NeoXsa Portfolio" width="150">
+<p align="center" style="font-size: 24px; font-weight: bold; margin-top: 15px;">NeoXsa Portfolio</p>
+</h2>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![NeoXsa Portfolio](https://github.com/neoxsa/neoxsa.portfolio/tree/main/public/laptop-preview.png)
 
-Currently, two official plugins are available:
+A modern, responsive portfolio website built with React and Tailwind CSS. Features a sleek dark theme with smooth animations, project showcase, and contact form.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![React](https://img.shields.io/badge/React-19.2.0-61DAFB?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7.2.2-646CFF?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.17-38B2AC?logo=tailwind-css&logoColor=white)
 
-## React Compiler
+## ⚠️ Credit Notice
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**If you fork this repository, please give credit to the original author [@neoxsa](https://github.com/neoxsa).** Attribution is appreciated! 🙏
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🎨 Modern dark theme with matrix-style effects
+- 📱 Fully responsive design
+- 🚀 Fast performance with Vite
+- 📧 Contact form with EmailJS integration
+- 🎭 Smooth animations and interactive UI
+
+## 🛠️ Tech Stack
+
+- **React 19.2.0**
+- **Vite 7.2.2**
+- **Tailwind CSS 4.1.17**
+- **React Router DOM 7.9.5** 
+- **Lucide React** - Icons
+- **EmailJS** - Email service
+- **React Google Recaptcha** - reCAPTCHA integration
+- **Sonner** - Toast notifications
+## 🚀 Quick Start
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/neoxsa/portfolio_sa.git
+   cd portfolio_sa
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open** `http://localhost:5173` in your browser
+
+## 🎨 Customization
+
+Edit `src/constants/constants.js` to add your projects:
+
+```javascript
+const all_projects = [
+  {
+    id: 1,
+    title: 'Your Project',
+    description: 'Description',
+    image: your_image,
+    tech_stack: ['React', 'Tailwind CSS'],
+    category: 'Frontend',
+    liveLink: 'https://your-link.com',
+    repoLink: 'https://github.com/yourusername/repo'
+  }
+]
+```
+
+## 👤 Author
+
+**SADAB ANWAR**
+**[@neoxsa](https://github.com/neoxsa)**
+
+---
+
+⭐ If you like this project, give it a star!
