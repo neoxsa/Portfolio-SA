@@ -1,15 +1,18 @@
 import { GithubIcon, LinkedinIcon} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import cy_2077_border from '../assets/btn/cy_2077_border.svg';
+import ScrollToTop from '../util/ScrollToTop.jsx';
 
 function Footer() {
     return (
         <footer className="relative mt-20 ">
-            <img
-                src={cy_2077_border}
-                alt="cyberpunk border"
-                className="w-full h-5 "
-            />
+           <div
+            className="w-full h-4 bg-repeat-x"
+            style={{
+              backgroundImage: `url(${cy_2077_border})`,
+              backgroundSize: 'auto 100%'
+            }}
+          ></div>
 
             <div
                 className="bg-[#0a0a0a]/50 backdrop-blur-md text-white px-8 py-12 relative"
@@ -45,6 +48,7 @@ function Footer() {
                                 <p className="hover:text-yellow-300 cursor-pointer transition">
                                     <Link
                                         to='/about'
+                                        onClick={() => ScrollToTop()}
                                     >
                                         &gt; ABOUT.EXE
                                     </Link>
@@ -52,6 +56,7 @@ function Footer() {
                                 <p className="hover:text-yellow-300 cursor-pointer transition">
                                     <Link
                                         to='/projects'
+                                        onClick={() => ScrollToTop()}
                                     >
                                         &gt; PROJECTS.DIR
                                     </Link>
@@ -59,6 +64,7 @@ function Footer() {
                                 <p className="hover:text-yellow-300 cursor-pointer transition">
                                     <Link
                                         to='/contact'
+                                        onClick={() => ScrollToTop()}
                                     >
                                         &gt; CONTACT.TXT
                                     </Link>
@@ -66,6 +72,7 @@ function Footer() {
                                 {/* <p className="hover:text-yellow-300 cursor-pointer transition">
                                     <Link
                                         to='/'
+                                        onClick={() => ScrollToTop()}
                                     >
                                         &gt; RESUME.PDF
                                     </Link>

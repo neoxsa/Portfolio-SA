@@ -114,11 +114,20 @@ function HeroCard() {
         </div>
       </section>
 
-      <img
+      {/* <img
         src={cy_2077_border}
         alt="cyberpunk border"
-        className="w-full h-5  rotate-180 "
-      />
+        className="w-full h-4 rotate-180 md:object-repeat-x"
+      /> */}
+
+      <div
+  className="w-full h-4 bg-repeat-x rotate-180"
+  style={{
+    backgroundImage: `url(${cy_2077_border})`,
+    backgroundSize: 'auto 100%'
+  }}
+></div>
+
     </>
   )
 }
