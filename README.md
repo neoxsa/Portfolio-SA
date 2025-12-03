@@ -3,8 +3,12 @@
 <p align="center" style="font-size: 24px; font-weight: bold; margin-top: 15px;">NeoXsa Portfolio</p>
 </h2>
 
-![NeoXsa Portfolio](https://github.com/neoxsa/neoxsa.portfolio/tree/main/public/laptop-preview.png)
+<br/>
 
+![NeoXsa Portfolio](./public/laptop-preview.png)
+
+
+<br/>
 A modern, responsive portfolio website built with React and Tailwind CSS. Features a sleek dark theme with smooth animations, project showcase, and contact form.
 
 ![React](https://img.shields.io/badge/React-19.2.0-61DAFB?logo=react&logoColor=white)
