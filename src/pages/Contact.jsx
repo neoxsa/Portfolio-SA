@@ -197,11 +197,6 @@ function Contact() {
             data-callback="__turnstileCallback"
             data-expired-callback="__turnstileExpire"
           ></div>
-          {/* <Turnstile
-            sitekey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
-            onVerify={(token) => setCaptchaToken(token)}
-            onExpire={() => setCaptchaToken(null)}
-          /> */}
 
 
           <div className="flex items-center gap-3 mt-2">
