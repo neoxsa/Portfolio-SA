@@ -1,7 +1,6 @@
 import { GithubIcon, LinkedinIcon} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import cy_2077_border from '../assets/btn/cy_2077_border.svg';
-import ScrollToTop from '../util/ScrollToTop.jsx';
 
 function Footer() {
     return (
@@ -48,7 +47,6 @@ function Footer() {
                                 <p className="hover:text-yellow-300 cursor-pointer transition">
                                     <Link
                                         to='/about'
-                                        onClick={() => ScrollToTop()}
                                     >
                                         &gt; ABOUT.EXE
                                     </Link>
@@ -56,7 +54,6 @@ function Footer() {
                                 <p className="hover:text-yellow-300 cursor-pointer transition">
                                     <Link
                                         to='/projects'
-                                        onClick={() => ScrollToTop()}
                                     >
                                         &gt; PROJECTS.DIR
                                     </Link>
@@ -64,7 +61,6 @@ function Footer() {
                                 <p className="hover:text-yellow-300 cursor-pointer transition">
                                     <Link
                                         to='/contact'
-                                        onClick={() => ScrollToTop()}
                                     >
                                         &gt; CONTACT.TXT
                                     </Link>
@@ -72,7 +68,6 @@ function Footer() {
                                 {/* <p className="hover:text-yellow-300 cursor-pointer transition">
                                     <Link
                                         to='/'
-                                        onClick={() => ScrollToTop()}
                                     >
                                         &gt; RESUME.PDF
                                     </Link>
