@@ -35,7 +35,7 @@ A modern, responsive portfolio website built with React and Tailwind CSS. Featur
 - **React Router DOM 7.9.5** 
 - **Lucide React** - Icons
 - **EmailJS** - Email service
-- **React Google Recaptcha** - reCAPTCHA integration
+- **Cloudflare Turnstile** - Turnstile integration
 - **Sonner** - Toast notifications
 ## 🚀 Quick Start
 
